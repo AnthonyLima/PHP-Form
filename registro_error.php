@@ -35,11 +35,9 @@
 
 						<div class="panel-body">
 							<ul class="text-danger">
-                                <li>La dirección de <strong>email</strong> no es correcta</li>
-								<li>Falta la <strong>contraseña</strong></li>
-								<li>Falta ingresar su <strong>nombre</strong></li>
-								<li>Falta ingresar su <strong>apellido</strong></li>
-								<li>No aceptó los términos</li>
+								<?php foreach($errores as $error) { ?>
+								<li><?=$error?></li>
+								<?php } ?>
 							</ul>
 						</div>
 

@@ -55,7 +55,7 @@ include_once("paises.php");
 						<option value="">Seleccionar pais</option>
 						<?php foreach(listaPaises() as $clave => $valor) { ?>
 						<option value="<?=$clave?>"><?=$valor?></option>
-						<?php}?>
+						<?php } ?>
 					</select>
 				</fieldset>
 

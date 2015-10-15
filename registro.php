@@ -13,10 +13,44 @@ if (empty($_POST['email'])) {
     $varEmail = $_POST['email'];
 }
 
+//verificacion del password
 if (empty($_POST['password'])) {
     $errores[] = "Falta su <strong>password</strong>";
 } else {
     $varPassword = $_POST['password'];
+}
+
+//verificacion de el nombre
+if(empty($_POST['nombre'])){
+    $errores[] = "Falta su <strong>nombre</strong>";
+} else {
+    $varNombre = $_POST['nombre'];
+}
+
+//verificacion del apellido
+if(empty($_POST['apellido'])){
+    $errores[] = "Falta su <strong>apellido</strong>";
+} else {
+    $varApellido = $_POST['apellido'];
+}
+
+//verificacion del sexo
+if(!isset($_POST['sexo'])){
+    $errores[] = "Escoja una opcion en<strong>sexo</strong>";
+} else {
+    $varSexo = $_POST['sexo'];
+}
+
+//verificar terminos
+if(!isset($_POST['terminos'])){
+    header('Location: index.php');
+} else {
+    $varTerminos = $_POST['terminos'];
+}
+
+//verificar pais
+if(!isset($_POST['pais'])){
+    $error[] = "seleccione un <strong>pais</strong>";
 }
 
 // si hay errores mostrar página de error
@@ -34,7 +68,7 @@ if (!empty($errores)) {
             throw new Exception("No se puede escribir el archivo de registro.");
         }
         // escribir archivo
-        fwrite($archivo, $varEmail . ", " . $varPassword . "\n");
+        fwrite($archivo, $varEmail . ", " . $varPassword . ", " . $varNombre . ", " .$varApellido . ", " . $varSexo . ", " . $varTerminos . "\n");
         // cerrar archivo
         fclose($archivo);
         include_once("registro_ok.php");
